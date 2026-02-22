@@ -53,7 +53,7 @@ serve(async (req) => {
 
     try {
       const result = await connection.queryObject<{ uid: string; username: string; role: string; password: string }>(
-        `SELECT uid, username, role, password FROM kodusers WHERE username = $1`,
+        `SELECT uid, username, role, password FROM kodusers WHERE username = $1 OR email = $1`,
         [username]
       );
 
